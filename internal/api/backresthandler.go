@@ -326,7 +326,7 @@ func (s *BackrestHandler) GetOperationEvents(ctx context.Context, req *connect.R
 	errChan := make(chan error, 1)
 	events := make(chan *v1.OperationEvent, 100)
 
-	timer := time.NewTicker(60 * time.Second)
+	timer := time.NewTicker(30 * time.Second)
 	defer timer.Stop()
 
 	callback := func(ops []*v1.Operation, eventType oplog.OperationEvent) {
